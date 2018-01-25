@@ -14,7 +14,7 @@ sudo ssserver --version
 # create config file
 sudo nano /etc/shadowsocks.json
 
-edit file as follow:	
+edit config file as follow:	
 {
     "server": "::",
     "local_address": "127.0.0.1",
@@ -25,11 +25,12 @@ edit file as follow:
 	"5742": "PASSWORD1"
     },
     "timeout": 300,
-    "method": "rc4-md5"
+    "method": "rc4-md5",
+    "fast_open": true
 }
 
-# add alias in ~/.bashrc
-alias ssstart='ssserver -c /etc/shadowsocks.json --fast-open -d start'
+# add alias in ~/.bashrc to simplify command
+alias ssstart='ssserver -c /etc/shadowsocks.json -d start'
 alias ssstop='ssserver -d stop'
 
 # start / stop shadowsocks
