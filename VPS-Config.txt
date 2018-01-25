@@ -1,0 +1,37 @@
+# update & upgrade
+sudo apt-get update
+sudo apt-get upgrade
+
+# install pip
+sudo apt install python3-pip
+
+# install shadowsocks
+pip3 install https://github.com/shadowsocks/shadowsocks/archive/master.zip
+
+# check shadowsocks
+sudo ssserver --version
+
+# create config file
+sudo nano /etc/shadowsocks.json
+
+edit file as follow:	
+{
+    "server": "::",
+    "local_address": "127.0.0.1",
+    "local_port": 1080,
+    "port_password": 
+    {
+	"8388": "PASSWORD0",
+	"5742": "PASSWORD1"
+    },
+    "timeout": 300,
+    "method": "rc4-md5"
+}
+
+# add alias in ~/.bashrc
+alias ssstart='ssserver -c /etc/shadowsocks.json --fast-open -d start'
+alias ssstop='ssserver -d stop'
+
+# start / stop shadowsocks
+ssstart
+ssstop
