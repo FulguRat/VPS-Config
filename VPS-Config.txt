@@ -36,3 +36,6 @@ alias ssstop='ssserver -d stop'
 # start / stop shadowsocks
 ssstart
 ssstop
+
+# optimization
+https://github.com/iMeiji/shadowsocks_install
